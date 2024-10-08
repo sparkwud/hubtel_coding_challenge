@@ -23,6 +23,9 @@ class SendNewButton extends StatelessWidget {
         opacity: _showFab ? 1 : 0,
         duration: _animationDuration,
         child: FloatingActionButton.extended(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(6),
+          ),
           onPressed: onPressed,
           backgroundColor: AppPalette.teal,
           icon: const Icon(
