@@ -154,27 +154,26 @@ class _HistoryTabState extends State<HistoryTab> {
             )
           : Padding(
               padding: const EdgeInsets.symmetric(horizontal: 18.0),
-              child: SingleChildScrollView(
-                controller: _scrollController,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      children: [
-                        const Expanded(
-                          child: SearchField(),
-                        ),
-                        SizedBox(
-                          height: 45,
-                          width: 45,
-                          child: SvgPicture.asset(AppDrawables.icFilter),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 16),
-                    ListView.separated(
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      const Expanded(
+                        child: SearchField(),
+                      ),
+                      SizedBox(
+                        height: 45,
+                        width: 45,
+                        child: SvgPicture.asset(AppDrawables.icFilter),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 16),
+                  Expanded(
+                    child: ListView.separated(
+                      controller: _scrollController,
                       shrinkWrap: true,
-                      physics: const NeverScrollableScrollPhysics(),
+                      // physics: const NeverScrollableScrollPhysics(),
                       itemBuilder: (context, index) {
                         final history = historyList[index];
                         return TransactionHistoryList(history: history);
@@ -183,8 +182,8 @@ class _HistoryTabState extends State<HistoryTab> {
                           const SizedBox(height: 16),
                       itemCount: historyList.length,
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
     );
