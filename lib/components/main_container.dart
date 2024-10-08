@@ -22,10 +22,22 @@ BottomNavigationBarItem buildSvgNavBarItem({
 }) {
   return BottomNavigationBarItem(
     icon: isHome
-        ? CircleAvatar(
-            backgroundColor: AppPalette.lightTeal,
-            radius: 20,
-            child: SvgPicture.asset(activeIconPath),
+        ? IntrinsicHeight(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                CircleAvatar(
+                  backgroundColor: AppPalette.lightTeal,
+                  radius: 20,
+                  child: SvgPicture.asset(activeIconPath),
+                ),
+                // const SizedBox(height: 20),
+                const VerticalDivider(
+                  thickness: 1.2,
+                  color: AppPalette.borderGray,
+                ),
+              ],
+            ),
           )
         : SvgPicture.asset(
             inactiveIconPath,
